@@ -1,5 +1,6 @@
 let btnDownload = document.querySelector('#btn');
 let img = document.querySelector('#img');
+
 function generateQR(){
   document.querySelector("#qr-image").style.display = "block";
   btnDownload.style.display = "block";
@@ -12,13 +13,7 @@ function generateQR(){
     document.querySelector("#img").style.display = "block";
     document.querySelector("#qr-image .error").innerHTML = "";
     document.querySelector("#img").src = "https://api.qrserver.com/v1/create-qr-code/?size=240×240&data=" + QRtext;
-  }
-}
-
-
-
-
-btnDownload.addEventListener('click', () => {
+    btnDownload.addEventListener('click', () => {
     let imagePath = img.getAttribute('src');
     let fileName = getFileName(imagePath);
     saveAs(imagePath, fileName);
@@ -27,3 +22,5 @@ btnDownload.addEventListener('click', () => {
 function getFileName(str) {
     return str.substring(str.lastIndexOf('/') + 1)
 }
+  }
+};
